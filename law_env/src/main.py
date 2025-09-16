@@ -1,4 +1,6 @@
-from src.trial3 import read_file, write_chunks_to_file, TextChunker, Embedder, Tokenizer
+from src.embedder import Embedder
+from src.chunker import TextChunker, Tokenizer
+from src.utils import read_file, write_chunks_to_file
 import asyncio
 import os
 
@@ -20,7 +22,7 @@ async def test_chunking_and_embedding():
     chunks = await chunker.chunk_text(content)
 
     # Write chunks for inspection
-    output_path = os.path.join(os.path.dirname(filename), "chunked_output3.txt")
+    output_path = os.path.join(os.path.dirname(filename), "chunked_output.txt")
     write_chunks_to_file(chunks, output_path, tokenizer_mode)
 
     # Summary
